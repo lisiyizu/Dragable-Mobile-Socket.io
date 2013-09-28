@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Just a POC ;)</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap-combined.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <a href="https://github.com/code4funFr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <div id="player" class="player" style="display: none;"></div>
+  <div id="container">
+    <div class="hero-unit">
+      <h2>POC Websocket connexion between 2 clients with Qrcode</h2>
+      <p>Built with : <strong>NodeJs, Express, Socket.io, Twitter Bootstrap, Google Chart API</strong></p>
+      <strong>Usage :</strong>
+      <ul>
+        <li>Scan the QrCode with your Smartphone</li>
+        <li>Wait for confirmation message on this page</li>
+        <li>Drag the ball on your Smartphone</li>
+        <li>A ball will move in real time on this page</li>
+      </ul>
+      <strong>Compatibily :</strong> 
+      <ul>
+        <li><strong>iOS :</strong> OK (Safari, Chrome).</li>
+        <li><strong>Android :</strong> Seem not working</li>
+        <li><strong>Windows Phone :</strong> Not tested</li>
+      </ul>
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-primary active">Touch version</button>
+        <button type="button" class="btn btn-primary">Accelerometer version (TODO)</button>
+      </div>
+    </div>
+    <div id="qrload">
+      <div class="bubblingG">
+        Connexion en cours ...
+        <span id="bubblingG_1"></span>
+        <span id="bubblingG_2"></span>
+        <span id="bubblingG_3"></span>
+      </div>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Client connected !</h3>
+    </div>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/client.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  socketQrCode.initSocketIo();
+  socketQrCode.addSocketioCallBack();
+});
+</script>
+</body>
+</html>
