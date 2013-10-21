@@ -5,11 +5,13 @@ var socketQrCode = (function () {
 
 var socket;
 var qrCodeSize = "180x180";
+var port = window.location.port;
 
 var _generateQrCodeImage = function (idSocket) {
   var urlApiGoogle = "http://chart.apis.google.com/chart?";
   urlApiGoogle += "chs="+ qrCodeSize + "&choe=UTF-8&cht=qr&chl=http://";
   urlApiGoogle += document.domain;
+  urlApiGoogle += (typeof(port) !== "undefined") ? ":"+port : "";
   urlApiGoogle += "/qrcode/control.html?id="+ idSocket;
   return urlApiGoogle;
 };

@@ -13,9 +13,9 @@
 // Configuration
 
 app.configure(function(){
-  //app.use(app.router);
+  app.use(app.router);
   app.use(express.static(__dirname + '/public'));
-  //app.set('env', 'production')
+  app.set('env', 'production')
 });
 
 app.configure('development', function(){
