@@ -36,11 +36,11 @@ io.sockets.on('connection', function (socket) {
   });
 
   socket.on('movePlayer', function (player) {
-    io.sockets.socket(player.socketId).emit('updatePlayerPosition', player);
+    io.to(player.socketId).emit('updatePlayerPosition', player);
   });
 
   socket.on('controlerConnected', function (socketId) {
-    io.sockets.socket(socketId).emit("clientConnexion");
+    io.to(socketId).emit("clientConnexion");
   });
 });
 
